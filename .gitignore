@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Project specific
+data/*.xls
+data/*.xlsx
+processed_data/*.xlsx
+new_calendar.xlsx
+
+# VS Code
+.vscode/
