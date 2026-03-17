@@ -10,3 +10,17 @@ services:
       - /app/node_modules
     environment:
       - WATCHPACK_POLLING=true
+  
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dcc_catalog
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
