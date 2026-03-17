@@ -3,6 +3,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    command: sh -c "if [ ! -f node_modules/@rolldown/binding-linux-x64-musl/rolldown-binding.linux-x64-musl.node ]; then npm install --include=optional --no-audit --no-fund; fi && npm run dev"
     ports:
       - "5173:5173"
     volumes:
@@ -10,6 +11,24 @@ services:
       - /app/node_modules
     environment:
       - WATCHPACK_POLLING=true
+  
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - DEBUG=1
+      - POSTGRES_DB=dcc_catalog
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+    depends_on:
+      - db
   
   db:
     image: postgres:17
