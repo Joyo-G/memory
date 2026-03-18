@@ -17,6 +17,8 @@ django = ">=6.0.3,<7.0.0"
 psycopg = ">=3.3.3,<4.0.0"
 djangorestframework = "^3.16.1"
 psycopg2-binary = "^2.9.11"
+django-filter = "^25.2"
+markdown = "^3.10.2"
 
 [tool.poetry.group.dev.dependencies]
 poetry-plugin-export = "^1.10.0"
