@@ -9,6 +9,9 @@ env/
 venv/
 ENV/
 
+# Secrets files
+.env
+
 # Project specific
 data/*.xls
 data/*.xlsx
