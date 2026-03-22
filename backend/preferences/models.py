@@ -7,6 +7,6 @@ class Modality(models.TextChoices):
 
 class Preference(models.Model):
     user = models.ForeignKey('accounts.User', on_delete=models.CASCADE, related_name='preferences')
-    course_offering = "pass"
+    course_offering = models.ForeignKey('courses.CourseOffering', on_delete=models.CASCADE, related_name='preferences')
     modality = models.CharField(max_length=20, choices=Modality.choices)
     priority = models.IntegerField()
