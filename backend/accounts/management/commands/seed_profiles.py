@@ -31,7 +31,7 @@ class Command(BaseCommand):
             )
 
             _, docente_profile_created = Docente.objects.get_or_create(
-                user=docente_user,
+                user_id=docente_user,
                 defaults={
                     "teaching_quota": 6,
                     "work_schedule": WorkShedule.FULL_TIME,
@@ -49,7 +49,7 @@ class Command(BaseCommand):
                 },
             )
 
-            _, docencia_profile_created = Docencia.objects.get_or_create(user=docencia_user)
+            _, docencia_profile_created = Docencia.objects.get_or_create(user_id=docencia_user)
 
         created_users = int(docente_user_created) + int(docencia_user_created)
         created_profiles = int(docente_profile_created) + int(docencia_profile_created)
