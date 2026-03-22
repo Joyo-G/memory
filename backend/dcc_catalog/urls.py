@@ -18,11 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from accounts import views
+from courses import views as course_views
 
 router = routers.DefaultRouter()
 router.register(r'docentes', views.DocenteViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'docencia', views.DocenciaViewSet)
+router.register(r'courses', course_views.CourseViewSet)
+router.register(r'academic_periods', course_views.AcademicPeriodViewSet)
+router.register(r'course_offerings', course_views.CourseOfferingViewSet)
+router.register(r'sections', course_views.SectionViewSet)
+router.register(r'schedules', course_views.ScheduleViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
